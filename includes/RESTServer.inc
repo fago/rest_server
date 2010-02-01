@@ -16,7 +16,7 @@ class RESTServer {
 
     // Determine the request method
     $method = $_SERVER['REQUEST_METHOD'];
-    if ($method=='POST' && $_GET['_method']) {
+    if ($method == 'POST' && !empty($_GET['_method'])) {
       $method = $_GET['_method'];
     }
     $path = split('/', $canonical_path);
