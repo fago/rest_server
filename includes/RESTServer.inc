@@ -31,7 +31,7 @@ class RESTServer {
     // Response will vary with accept headers
     // if no format was supplied as path suffix
     if (empty($response_format)) {
-      drupal_add_http_header('Vary: Accept');
+      drupal_add_http_header('Vary', 'Accept');
     }
 
     // Return the leaf to the path array if it's not the resource name
@@ -137,7 +137,7 @@ class RESTServer {
     $formatter = $formats[$response_format];
 
     // Set the content type and render output
-    drupal_add_http_header('Content-type: ' . $mime_type);
+    drupal_add_http_header('Content-type', $mime_type);
     return $this->renderFormatterView($controller, $formatter, $result);
   }
 
